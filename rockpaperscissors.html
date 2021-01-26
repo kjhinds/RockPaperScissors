@@ -6,42 +6,45 @@
     <body>
         <script>
             const rounds = 5;
+            const winnerDict = {
+                'rock': 'paper',
+                'paper': 'scissors',
+                'scissors': 'rock'
+            }
 
             function computerPlay() {
-                const gesture = ['rock','paper','scissors'];
-                const random = Math.floor(Math.random() * gesture.length);
-                return gesture[random];
+                var gestures = Object.keys(winnerDict);
+                var random = Math.floor(Math.random() * gestures.length);
+                return gestures[random];
             }
 
             function playRound(playerSelection, computerSelection) {
                 playerSelection = playerSelection.toLowerCase();
                 computerSelection = computerSelection.toLowerCase();
+
                 if (playerSelection == computerSelection) {
                     return 'tie';
-                }
-                if (playerSelection == 'rock') {
-                    if (computerSelection == 'paper') {
-                        return 'computer';
-                    } else {
-                        return 'player';
-                    }
-                }
-                if (playerSelection == 'paper') {
-                    if (computerSelection == 'scissors') {
-                        return 'computer';
-                    } else {
-                        return 'player';
-                    }
-                }
-                if (playerSelection == 'scissors') {
-                    if (computerSelection == 'rock') {
-                        return 'computer';
-                    } else {
-                        return 'player';
-                    }
+                } else if (playerSelection == winnerDict[computerSelection]) {
+                    return 'player';
+                } else {
+                    return 'computer';
                 }
 
             }
+
+            function reportWinner(winner) {
+                if (winner == 'player') {
+                    playerScore++;
+                    console.log('You win, ' + playerSelection + ' beats ' + computerSelection);
+                } else if (winner == 'computer') {
+                    computerScore++;
+                    console.log('You lose, ' + computerSelection + ' beats ' + playerSelection);
+                } else {
+                    console.log('Tie! You both chose ' + playerSelection)
+                } 
+                    console.log('Player: ' + playerScore + '. Computer: ' + computerScore + '.')
+            }
+
             function game() {
                 var playerScore = 0;
                 var computerScore = 0;
@@ -52,16 +55,7 @@
                         playerSelection = prompt('Rock, paper, or scissors?')
                     } while (!playerSelection)
                     winner = playRound(playerSelection, computerSelection);
-                    if (winner == 'player') {
-                        playerScore++;
-                        console.log('You win, ' + playerSelection + ' beats ' + computerSelection);
-                    } else if (winner == 'computer') {
-                        computerScore++;
-                        console.log('You lose, ' + computerSelection + ' beats ' + playerSelection);
-                    } else {
-                        console.log('Tie! You both chose ' + playerSelection)
-                    } 
-                    console.log('Player: ' + playerScore + '. Computer: ' + computerScore + '.')
+                    reportWinner(winner);
                 }
             }
 
