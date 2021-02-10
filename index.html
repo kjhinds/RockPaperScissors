@@ -5,14 +5,39 @@
         <link rel="stylesheet" href='style.css'>
     </head>
     <body>
-        <h1>Rock, Paper, Scissors!</h1>
-        <button id="start" type="button">Start Game</button> 
-        <div>
-            <button id='rock' type='button'><img src='rock.png' alt='Rock'></button>
-            <button id='paper' type='button'><img src='paper.png' alt='Paper'></button>
-            <button id='scissors' type='button'><img src='scissors.png' alt='Scissors'></button>
+        <div id='header'>
+            <h1>Rock, Paper, Scissors!</h1>
+            <p>Choose your weapon!</p>
+            <button id="start" type="button">Start Game</button> 
         </div>
-        <p id="results"></p>
+        <div id='container'>
+        </div>
+        <div id='gameLog'>
+            <div id='round'>
+                <p id='roundText'></p>
+            </div>
+            <div id='player'>
+                <p>Player Weapon</p>
+                <div>
+                    <img id='playerWeapon' src='' alt=''>
+                </div>
+            </div>
+            <div id='computer'>
+                <p>Computer Weapon</p>
+                <div>
+                    <img id='computerWeapon' src='' alt=''>
+                </div>
+            </div>
+            <div id='results'>
+                <p id='resultsText'></p>
+            </div>
+            <div id='scores'>
+                <p id='scoresText'></p>
+            </div>
+        </div>
+        <div id='gameover'>
+            <h2>Game Over!</h2>
+        </div>
         <div class='footer'>
             <p>Art: By By Enzoklop - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=27958688</p>       
         </div>

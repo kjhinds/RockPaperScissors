@@ -2,8 +2,19 @@ body {
     text-align: center;
 }
 
-#results {
-    white-space: pre-line;
+#round, #results, #scores {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#gameLog {
+    display:grid;
+    grid-template-columns: auto auto;
+    visibility: hidden;
+}
+
+#gameover {
+    visibility: hidden;
 }
 
 .footer {
